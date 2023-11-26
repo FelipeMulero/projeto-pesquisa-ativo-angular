@@ -1,4 +1,4 @@
-# Projeto Variação do Ativo em Angular
+# Projeto Consulta de Variação de Ativos em Angular
 
 Este projeto Angular fornece uma aplicação para pesquisar e visualizar detalhes de ativos financeiros, incluindo tabelas e gráficos interativos.
 
