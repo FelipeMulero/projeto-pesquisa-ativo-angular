@@ -1,11 +1,11 @@
-#Projeto Variação do Ativo em Angular
+# Projeto Variação do Ativo em Angular
 
 Este projeto Angular fornece uma aplicação para pesquisar e visualizar detalhes de ativos financeiros, incluindo tabelas e gráficos interativos.
 
-#Pré-requisitos
+# Pré-requisitos
 Antes de começar, certifique-se de ter o Node.js e o Angular CLI instalados em sua máquina.
 
-Instalação
+# Instalação
 Clone este repositório:
 
 bash
@@ -31,7 +31,7 @@ Abra seu navegador e vá para http://localhost:4200/.
 
 Você verá a interface do usuário, onde pode inserir o nome de um ativo financeiro e obter detalhes sobre ele.
 
-Estrutura do Projeto
+# Estrutura do Projeto
 src/app/asset-details: Contém o componente principal (asset-details.component) e seus subcomponentes (asset-table, asset-chart, asset-form).
 src/app/core: Contém serviços e modelos relacionados à lógica de negócios.
 Customizações
