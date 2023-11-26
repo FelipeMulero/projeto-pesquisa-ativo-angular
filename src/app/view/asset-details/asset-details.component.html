@@ -1,0 +1,60 @@
+<div class="container">
+  <app-search-bar></app-search-bar>
+  <app-asset-table [assetData]="assetData"></app-asset-table>
+  <app-asset-chart [data]="data"></app-asset-chart>
+</div>
+
+<header>
+  <div>
+    <h3>Consulte o seu ativo </h3>
+  </div>
+  <form [formGroup]="assetForm">
+    <div class="input-search-container">
+      <input type="text" placeholder="Escreva o nome de um ativo" formControlName="asset"
+      />
+      <p-button label="Pesquisar" [disabled]="!assetForm.valid" (onClick)="submitAsset()"
+      ></p-button>
+    </div>
+  </form>
+</header>
+<body>
+  <div class="section">
+    <p-chart type="line" [data]="data"></p-chart>
+  </div>
+
+  <div class="section">
+    <p-table
+      [value]="assetData"
+      [tableStyle]="{ 'min-width': '20rem' }"
+    >
+      <ng-template pTemplate="header">
+        <tr *ngIf="assetData.length > 0; else noTableItemsFound">
+          <th>Dia</th>
+          <th>Data</th>
+          <th>Valor</th>
+          <th>Variação em relação a D-1</th>
+          <th>Variação em relação a primeira data</th>
+        </tr>
+        <ng-template #noTableItemsFound>
+          <tr>
+            <td>Dados não encontrados.</td>
+          </tr>
+        </ng-template>
+      </ng-template>
+      <ng-template pTemplate="body" let-assetData>
+        <tr>
+          <td>{{ assetData.day }}</td>
+          <td>{{ assetData.date | date : "dd/MM/yyyy" }}</td>
+          <td>{{ assetData.value | currency : "BRL" }}</td>
+          <td *ngIf="assetData.variationPreviousDay > 0; else noData">
+            {{ assetData.variationPreviousDay | percent }}
+          </td>
+          <td *ngIf="assetData.variationPreviousDay > 0; else noData">
+            {{ assetData.variationComparedToFirstDay | percent }}
+          </td>
+          <ng-template #noData> <td>-</td></ng-template>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</body>

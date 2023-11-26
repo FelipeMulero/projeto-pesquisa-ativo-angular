@@ -1,0 +1,25 @@
+<app-asset-table [formattedAssetData]="formattedAssetData" [tableStyle]="{ 'min-width': '20rem' }">
+  <ng-template pTemplate="header">
+      <tr>
+        <th>Dia</th>
+        <th>Data</th>
+        <th>Valor</th>
+        <th>Variação em relação a D-1</th>
+        <th>Variação em relação a primeira data</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-formattedAssetData>
+      <tr>
+        <td>{{ formattedAssetData.day }}</td>
+        <td>{{ formattedAssetData.date | date : "dd/MM/yyyy" }}</td>
+        <td>{{ formattedAssetData.value | currency : "BRL" }}</td>
+        <td *ngIf="formattedAssetData.variationPreviousDay > 0; else noData">
+          {{ formattedAssetData.variationPreviousDay | percent }}
+        </td>
+        <td *ngIf="formattedAssetData.variationPreviousDay > 0; else noData">
+          {{ formattedAssetData.variationComparedToFirstDay | percent }}
+        </td>
+        <td *ngTemplate #noData> -</td>
+      </tr>
+    </ng-template>
+  </app-asset-table>
