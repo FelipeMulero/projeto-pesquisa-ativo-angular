@@ -1,7 +1,8 @@
 #Projeto Variação do Ativo em Angular
+
 Este projeto Angular fornece uma aplicação para pesquisar e visualizar detalhes de ativos financeiros, incluindo tabelas e gráficos interativos.
 
-Pré-requisitos
+#Pré-requisitos
 Antes de começar, certifique-se de ter o Node.js e o Angular CLI instalados em sua máquina.
 
 Instalação
